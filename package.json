@@ -1,0 +1,16 @@
+{
+  "name": "generator-node-angular-app",
+  "main": "app/index.js",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.19.0",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.2",
+    "lodash": "~3.10.0"
+  }
+}
