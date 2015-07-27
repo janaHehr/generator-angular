@@ -11,12 +11,12 @@ module.exports = function(gulp, plugins, config) {
 
     // build
     gulp.task('build', function(done) {
-        plugins.runSequence('clean', ['copy', 'scripts', 'sass', 'lint'], 'copy:server', 'copy:package.json', 'combineDistJsFiles', 'index', done);
+        plugins.runSequence('clean', ['copy', 'scripts', 'sass', 'lint'], 'copy:package.json', 'combineDistJsFiles', 'index', done);
     });
 
 
     // build (for dev)
     gulp.task('build:dev', function(done) {
-        plugins.runSequence('clean', ['copy', 'scripts:dev', 'sass:dev', 'lint'], 'copy:server', 'copy:package.json', 'index:dev', done);
+        plugins.runSequence('clean', ['copy', 'scripts:dev', 'sass:dev', 'lint'], 'copy:package.json', 'index:dev', done);
     });
 };

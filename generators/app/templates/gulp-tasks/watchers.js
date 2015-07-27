@@ -26,11 +26,11 @@ module.exports = function(gulp, plugins, config) {
     });
 
     gulp.task('watch:index', function() {
-        gulp.watch(config.srcPublicPath + 'index.html', ['index:dev']);
+        gulp.watch('index.html', ['index:dev']);
     });
 
     gulp.task('watch:locales', function() {
-        gulp.watch(config.srcPublicPath + 'locales/**/*.json', ['copy:locales']);
+        gulp.watch('locales/**/*.json', ['copy:locales']);
     });
 
 };

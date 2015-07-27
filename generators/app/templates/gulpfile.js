@@ -10,33 +10,27 @@ var plugins = require('gulp-load-plugins')({
 
 //base variables
 var applicationName = '<%= safeAppName %>';
-var srcPublicPath = 'public/';
 var destPath = 'dist/';
-var destPublicPath = destPath + 'public/';
 
 var config = {
     applicationName: applicationName,
 
     srcServerFiles: 'server/**/*.*',
-    srcPublicPath: srcPublicPath,
-    srcJsFiles: [srcPublicPath + 'lib/**/*.js',
-                 srcPublicPath + 'app/**/*.js',
-                 '!' + srcPublicPath + '/bower_components',
-                 '!' + srcPublicPath + 'app/**/*.spec.js'],
+    srcJsFiles: ['lib/**/*.js',
+                 'app/**/*.js',
+                 '!bower_components',
+                 '!app/**/*.spec.js'],
 
-    srcTemplateFiles: [srcPublicPath + 'app/**/*.html'],
-    srcSassFiles: [srcPublicPath + '/**/*.scss',
-                   '!' + srcPublicPath + '/bower_components/'],
+    srcTemplateFiles: ['app/**/*.html'],
+    srcSassFiles: ['**/*.scss',
+                   '!bower_components/'],
 
-    srcMainSassFile: srcPublicPath + 'less/main.less',
-
+    srcMainSassFile: 'assets/sass/main.scss',
 
     destPath: destPath,
-    destPublicPath: destPublicPath,
 
-    destJsPath: destPublicPath + 'js/',
-    destCssPath: destPublicPath + 'css/',
-    destServerPath: destPath + 'server/',
+    destJsPath: destPath + 'js/',
+    destCssPath: destPath + 'css/',
 
     destJsFile: applicationName + '.js',
     destVendorFile: 'vendor.js',

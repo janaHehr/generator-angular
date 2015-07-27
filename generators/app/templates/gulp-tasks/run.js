@@ -2,13 +2,14 @@
 
 module.exports = function(gulp, plugins, config) {
 
-  gulp.task('server', function() {
-    plugins.nodemon({
-      script: 'server/index.js',
-      env: {
-        'NODE_ENV': 'development'
-      }
-    });
+//webserver for serving static content
+  gulp.task('webserver', function() {
+    gulp.src('dist')
+      .pipe(plugins.webserver({
+        livereload: true,
+        open: true,
+        fallback:'index.html'
+      }));
   });
 
 };

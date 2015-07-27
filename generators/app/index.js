@@ -15,10 +15,12 @@ module.exports = yeoman.generators.Base.extend({
             required: true
         });
 
-        this.config = {
+        this.names = {
             appName: this.appName,
             safeAppName: _.camelCase(this.appName)
         };
+
+        this.config.save();
     },
     // prompting: function() {
     //     var done = this.async();
@@ -44,28 +46,30 @@ module.exports = yeoman.generators.Base.extend({
 
     writing: {
         config: function() {
-            this.fs.copyTpl(this.templatePath('bower.json'), this.destinationPath('bower.json'), this.config);
-            this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'), this.config);
+            this.fs.copyTpl(this.templatePath('bower.json'), this.destinationPath('bower.json'), this.names);
+            this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'), this.names);
             this.fs.copy(this.templatePath('.jshintrc'), this.destinationPath('.jshintrc'));
             this.fs.copy(this.templatePath('.bowerrc'), this.destinationPath('.bowerrc'));
             this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
             this.fs.copy(this.templatePath('.gitattributes'), this.destinationPath('.gitattributes'));
         },
-        server: function() {
-            this.fs.copy(this.templatePath('server/**/*'), this.destinationPath('server'));
-        },
+
         app: function() {
-            this.fs.copyTpl(this.templatePath('public/**/*'), this.destinationPath('public'), this.config);
+            this.fs.copyTpl(this.templatePath('app/**/*'), this.destinationPath('app'), this.names);
+            this.fs.copy(this.templatePath('assets/**/*'), this.destinationPath('assets'));
+            this.fs.copy(this.templatePath('index.html'), this.destinationPath('index.html'), this.names);
+            this.fs.copy(this.templatePath('favicon.ico'), this.destinationPath('favicon.ico'));
 
             //create empty folders
-            mkdirp('public/locales');
-            mkdirp('public/lib');
-            mkdirp('public/content');
-            mkdirp('public/app/components');
+            mkdirp('app/locales');
+            mkdirp('lib');
+            mkdirp('assets/img');
+            mkdirp('app/components');
+            mkdirp('app/shared');
         },
         gulp: function() {
             this.fs.copy(this.templatePath('gulp-tasks/**/*'), this.destinationPath('gulp-tasks'));
-            this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath('gulpfile.js'), this.config);
+            this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath('gulpfile.js'), this.names);
         }
     },
 
