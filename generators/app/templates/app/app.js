@@ -2,8 +2,7 @@
     'use strict';
 
     angular.module('<%= safeAppName %>', [
-            'ngRoute',
-            'start'
+            'ngRoute'
         ])
         .config(init);
 
