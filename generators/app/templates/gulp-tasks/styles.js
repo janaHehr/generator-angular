@@ -28,4 +28,12 @@ module.exports = function(gulp, plugins, config) {
             .pipe(plugins.rename(config.destCssFile))
             .pipe(gulp.dest(config.destCssPath));
     });
+
+
+
+    /*----------watchers----------*/
+
+    gulp.task('watch:styles', function() {
+        gulp.watch(config.srcSassFiles, ['sass']);
+    });
 };

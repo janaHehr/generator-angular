@@ -29,27 +29,14 @@ module.exports = function(gulp, plugins, config) {
     gulp.task('copy', ['copy:content', 'copy:fonts', 'copy:locales']);
 
 
-    // copy index.html and inject concated js dist file
-    gulp.task('index', function() {
-        return gulp.src('index.html')
-            .pipe(plugins.inject(gulp.src([config.destJsPath + config.destCombinedJsFile, config.destCssPath + config.destCssFile], {
-                read: false
-            }), {
-              ignorePath:'/dist/',
-              addRootSlash: true
-            }))
-            .pipe(gulp.dest(config.destPath));
+
+
+    /*----------watchers----------*/
+
+    gulp.task('watch:locales', function() {
+        gulp.watch('locales/**/*.json', ['copy:locales']);
     });
 
-    // copy index.html and inject js dist files
-    gulp.task('index:dev', function() {
-        return gulp.src('index.html')
-            .pipe(plugins.inject(gulp.src(config.destJsFiles.concat([config.destCssPath + config.destCssFile]), {
-                read: false
-            }), {
-              ignorePath:'/dist/',
-              addRootSlash: true
-            }))
-            .pipe(gulp.dest(config.destPath));
-    });
+    gulp.task('watch:content', ['watch:locales']);
+
 };

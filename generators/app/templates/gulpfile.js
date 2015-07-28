@@ -15,7 +15,6 @@ var destPath = 'dist/';
 var config = {
     applicationName: applicationName,
 
-    srcServerFiles: 'server/**/*.*',
     srcJsFiles: ['lib/**/*.js',
                  'app/**/*.js',
                  '!bower_components',
@@ -51,10 +50,12 @@ config.srcVendorFiles = plugins.mainBowerFiles().filter(function(file) {
 
 
 //import all tasks
-require('./gulp-tasks/copy.js')(gulp, plugins, config);
-require('./gulp-tasks/watchers.js')(gulp, plugins, config);
-require('./gulp-tasks/build.js')(gulp, plugins, config);
+
+require('./gulp-tasks/content.js')(gulp, plugins, config);
+require('./gulp-tasks/index.js')(gulp, plugins, config);
 require('./gulp-tasks/scripts.js')(gulp, plugins, config);
 require('./gulp-tasks/styles.js')(gulp, plugins, config);
-require('./gulp-tasks/run.js')(gulp, plugins, config);
-require('./gulp-tasks/profile-dev.js')(gulp, plugins, config);
+require('./gulp-tasks/webserver.js')(gulp, plugins, config);
+
+require('./gulp-tasks/custom/build-run.js')(gulp, plugins, config);
+require('./gulp-tasks/custom/watch-all.js')(gulp, plugins, config);

@@ -91,4 +91,23 @@ module.exports = function(gulp, plugins, config) {
 
     // process all scripts without uglify (for dev)
     gulp.task('scripts:dev', ['package:vendor', 'package:js', 'package:templates']);
+
+
+
+    /*----------watchers----------*/
+
+    gulp.task('watch:js', function() {
+        gulp.watch(config.srcJsFiles, ['lint', 'package:js']);
+    });
+
+    gulp.task('watch:vendor', function() {
+        gulp.watch(config.srcVendorFiles, ['package:vendor']);
+    });
+
+    gulp.task('watch:templates', function() {
+        gulp.watch(config.srcTemplateFiles, ['package:templates']);
+    });
+
+    gulp.task('watch:scripts', ['watch:js', 'watch:vendor', 'watch:templates']);
+
 };
