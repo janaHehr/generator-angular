@@ -2,7 +2,7 @@
 
 module.exports = function(gulp, plugins, config) {
     // process sass file to css
-    gulp.task('sass', function() {
+    gulp.task('styles', function() {
         return gulp.src(config.srcMainSassFile)
             .pipe(plugins.sass())
             .pipe(plugins.autoprefixer({
@@ -16,7 +16,7 @@ module.exports = function(gulp, plugins, config) {
     });
 
     // process sass file to css without minify
-    gulp.task('sass:dev', function() {
+    gulp.task('styles:dev', function() {
         return gulp.src(config.srcMainSassFile)
             .pipe(plugins.sass())
             .pipe(plugins.autoprefixer({
@@ -34,6 +34,6 @@ module.exports = function(gulp, plugins, config) {
     /*----------watchers----------*/
 
     gulp.task('watch:styles', function() {
-        gulp.watch(config.srcSassFiles, ['sass']);
+        gulp.watch(config.srcSassFiles, ['styles']);
     });
 };

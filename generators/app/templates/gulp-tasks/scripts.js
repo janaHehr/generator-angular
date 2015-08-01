@@ -86,11 +86,14 @@ module.exports = function(gulp, plugins, config) {
             .pipe(plugins.jshint.reporter('jshint-stylish'));
     });
 
+
     // process all scripts
-    gulp.task('scripts', ['package:vendor', 'uglify:js', 'uglify:templates']);
+    gulp.task('scripts', function(done) {
+        plugins.runSequence(['package:vendor', 'uglify:js', 'uglify:templates', 'lint'], 'combineDistJsFiles', done);
+    });
 
     // process all scripts without uglify (for dev)
-    gulp.task('scripts:dev', ['package:vendor', 'package:js', 'package:templates']);
+    gulp.task('scripts:dev', ['package:vendor', 'package:js', 'package:templates', 'lint']);
 
 
 
@@ -107,6 +110,7 @@ module.exports = function(gulp, plugins, config) {
     gulp.task('watch:templates', function() {
         gulp.watch(config.srcTemplateFiles, ['package:templates']);
     });
+
 
     gulp.task('watch:scripts', ['watch:js', 'watch:vendor', 'watch:templates']);
 

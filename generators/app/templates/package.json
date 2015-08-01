@@ -1,11 +1,7 @@
 {
     "name": "<%= safeAppName %>",
-    "main": "server/index.js",
     "scripts": {
         "start": "gulp dev"
-    },
-    "dependencies": {
-        "express": "~4.12.4"
     },
     "devDependencies": {
         "gulp-rename": "~1.2.2",
