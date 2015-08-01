@@ -51,7 +51,7 @@ config.srcVendorFiles = plugins.mainBowerFiles().filter(function(file) {
 
 //import all tasks
 
-require('./gulp-tasks/content.js')(gulp, plugins, config);
+require('./gulp-tasks/copyStatic.js')(gulp, plugins, config);
 require('./gulp-tasks/index.js')(gulp, plugins, config);
 require('./gulp-tasks/scripts.js')(gulp, plugins, config);
 require('./gulp-tasks/styles.js')(gulp, plugins, config);
