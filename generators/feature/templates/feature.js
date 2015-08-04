@@ -3,7 +3,7 @@
 
     angular.module('<%= name %>', [])
         .config(defineRoutes)
-        .controller('<%= upperName %>Controller', <%=name%>Controller);
+        .controller('<%= upperName %>Controller', <%=upperName%>Controller);
 
     function defineRoutes($routeProvider) {
         $routeProvider.when('/<%= name %>', {
