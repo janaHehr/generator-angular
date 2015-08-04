@@ -3,17 +3,16 @@
 
     angular.module('<%= name %>', [])
         .config(defineRoutes)
-        .controller('<%= name %>Controller', <%=name%>Controller);
+        .controller('<%= upperName %>Controller', <%=name%>Controller);
 
     function defineRoutes($routeProvider) {
         $routeProvider.when('/<%= name %>', {
             templateUrl: 'app/components/<%= name %>/<%= name %>.html',
-            // TODO: Uppercase Name
-            controller: '<%= name %>Controller'
+            controller: '<%= upperName %>Controller'
         });
     }
 
-    function <%= name %>Controller($scope) {
+    function <%= upperName %>Controller($scope) {
 
     }
 }());
