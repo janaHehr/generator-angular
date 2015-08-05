@@ -35,8 +35,8 @@ var config = {
     destVendorFile: 'vendor.js',
     destTemplateFile: applicationName + '-templates.js',
     destCombinedJsFile: applicationName + '.min.js',
-    destCssFile: 'main.min.css'/*,
-    karmaConfigFile: path.resolve('karma.conf.js')*/
+    destCssFile: 'main.min.css',
+    karmaConfigFile: path.resolve('karma.conf.js')
 };
 
 config.destJsFiles = [config.destJsPath + config.destVendorFile, config.destJsPath + config.destJsFile, config.destJsPath + config.destTemplateFile];
@@ -50,12 +50,12 @@ config.srcVendorFiles = plugins.mainBowerFiles().filter(function(file) {
 
 
 //import all tasks
-
 require('./gulp-tasks/copyStatic.js')(gulp, plugins, config);
 require('./gulp-tasks/index.js')(gulp, plugins, config);
 require('./gulp-tasks/scripts.js')(gulp, plugins, config);
 require('./gulp-tasks/styles.js')(gulp, plugins, config);
 require('./gulp-tasks/webserver.js')(gulp, plugins, config);
+require('./gulp-tasks/tests.js')(gulp, plugins, config);
 
 require('./gulp-tasks/custom/build-run.js')(gulp, plugins, config);
 require('./gulp-tasks/custom/watch-all.js')(gulp, plugins, config);

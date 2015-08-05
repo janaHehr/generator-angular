@@ -16,7 +16,7 @@ module.exports = function(gulp, plugins, config) {
 
     // build (for dev)
     gulp.task('build:dev', function(done) {
-        plugins.runSequence('clean', ['copyStatic', 'scripts:dev', 'styles:dev'], 'index:dev', done);
+        plugins.runSequence('karma','clean', ['copyStatic', 'scripts:dev', 'styles:dev'], 'index:dev', done);
     });
 
 

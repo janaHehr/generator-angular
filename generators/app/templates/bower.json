@@ -8,7 +8,8 @@
         "tests"
     ],
     "dependencies": {
-        "angular": "~1.4.1",
-        "angular-route": "~1.4.1"
+        "angular": "~1.4.3",
+        "angular-route": "~1.4.3",
+        "angular-mocks": "~1.4.3"
     }
 }
