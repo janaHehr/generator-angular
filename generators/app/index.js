@@ -58,11 +58,11 @@ module.exports = yeoman.generators.Base.extend({
         app: function() {
             this.fs.copyTpl(this.templatePath('app/**/*'), this.destinationPath('app'), this.names);
             this.fs.copy(this.templatePath('assets/**/*'), this.destinationPath('assets'));
+            this.fs.copy(this.templatePath('locales/**/*'), this.destinationPath('locales'));
             this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('index.html'), this.names);
             this.fs.copy(this.templatePath('favicon.ico'), this.destinationPath('favicon.ico'));
 
             //create empty folders
-            mkdirp('app/locales');
             mkdirp('lib');
             mkdirp('assets/img');
             mkdirp('app/components');
