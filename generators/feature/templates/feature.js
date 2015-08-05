@@ -11,8 +11,7 @@
             controller: '<%= upperName %>Controller'
         });
     }
-
     function <%= upperName %>Controller($scope) {
-
+      
     }
 }());

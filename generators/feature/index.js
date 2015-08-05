@@ -13,7 +13,7 @@ module.exports = yeoman.generators.NamedBase.extend({
 
         this.names = {
             name: _.camelCase(this.name),
-            upperName: _.capitalize(this.name)
+            upperName: _.capitalize(_.camelCase(this.name))
         };
     },
 
