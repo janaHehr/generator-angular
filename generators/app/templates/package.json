@@ -1,6 +1,7 @@
 {
     "name": "<%= safeAppName %>",
     "scripts": {
+        "postinstall": "bower install",
         "start": "gulp dev"
     },
     "devDependencies": {
