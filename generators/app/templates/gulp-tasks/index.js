@@ -9,7 +9,7 @@ module.exports = function(gulp, plugins, config) {
                 read: false
             }), {
               ignorePath:'/dist/',
-              addRootSlash: true
+              addRootSlash: false
             }))
             .pipe(gulp.dest(config.destPath));
     });
@@ -21,7 +21,7 @@ module.exports = function(gulp, plugins, config) {
                 read: false
             }), {
               ignorePath:'/dist/',
-              addRootSlash: true
+              addRootSlash: false
             }))
             .pipe(gulp.dest(config.destPath));
     });
