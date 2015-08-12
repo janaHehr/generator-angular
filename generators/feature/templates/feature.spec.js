@@ -4,7 +4,7 @@ describe('<%= name %>', function() {
 
     var $scope;
     beforeEach(function() {
-        //angular.mock.module();
+        angular.mock.module();
         module('<%= name %>');
     });
 
