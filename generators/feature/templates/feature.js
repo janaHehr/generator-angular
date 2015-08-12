@@ -1,7 +1,7 @@
 (function(){
     'use strict';
 
-    angular.module('<%= name %>', [])
+    angular.module('<%= name %>', ['ngRoute'])
         .config(defineRoutes)
         .controller('<%= upperName %>Controller', <%=upperName%>Controller);
 

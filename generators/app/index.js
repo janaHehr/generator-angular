@@ -69,7 +69,7 @@ module.exports = yeoman.generators.Base.extend({
             mkdirp('app/shared');
         },
         gulp: function() {
-            this.fs.copy(this.templatePath('gulp-tasks/**/*'), this.destinationPath('gulp-tasks'));
+            this.fs.copy(this.templatePath('gulp/**/*'), this.destinationPath('gulp'));
             this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath('gulpfile.js'), this.names);
         }
     },
