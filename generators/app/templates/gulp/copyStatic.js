@@ -4,7 +4,7 @@ module.exports = function(gulp, plugins, config) {
 
     // copy content to dist
     gulp.task('copyStatic:content', function() {
-        return gulp.src('src/assets/**/*.*')
+        return gulp.src(['src/assets/**/*.*',  '!src/assets/sass/**/*.*'])
             .pipe(gulp.dest(config.destPath + 'content'));
     });
 
