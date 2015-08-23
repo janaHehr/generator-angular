@@ -22,7 +22,7 @@ module.exports = function(plugins) {
             '!bower_components/'
         ],
 
-        srcMainSassFile: 'src/app/assets/sass/main.scss',
+        srcMainSassFile: 'src/assets/sass/main.scss',
 
         destPath: destPath,
 
