@@ -4,13 +4,13 @@ module.exports = function(gulp, plugins, config) {
 
     // copy content to dist
     gulp.task('copyStatic:content', function() {
-        return gulp.src('assets/**/*.*')
+        return gulp.src('src/assets/**/*.*')
             .pipe(gulp.dest(config.destPath + 'content'));
     });
 
     // copy locales to dist
     gulp.task('copyStatic:locales', function() {
-        return gulp.src('locales/**/*.*')
+        return gulp.src('src/locales/**/*.*')
             .pipe(gulp.dest(config.destPath + 'locales'));
     });
 
@@ -23,17 +23,14 @@ module.exports = function(gulp, plugins, config) {
     // copy static files to dist
     gulp.task('copyStatic', ['copyStatic:content', 'copyStatic:locales', 'copyStatic:fonts']);
 
-
-
-
     /*----------watchers----------*/
 
     gulp.task('watch:content', function() {
-        gulp.watch('assets/**/*.*', ['copyStatic:content']);
+        gulp.watch('src/assets/**/*.*', ['copyStatic:content']);
     });
 
     gulp.task('watch:locales', function() {
-        gulp.watch('locales/**/*.json', ['copyStatic:locales']);
+        gulp.watch('src/locales/**/*.json', ['copyStatic:locales']);
     });
 
     gulp.task('watch:fonts', function() {

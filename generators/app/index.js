@@ -56,21 +56,22 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         app: function() {
-            this.fs.copyTpl(this.templatePath('app/**/*'), this.destinationPath('app'), this.names);
-            this.fs.copy(this.templatePath('assets/**/*'), this.destinationPath('assets'));
-            this.fs.copy(this.templatePath('locales/**/*'), this.destinationPath('locales'));
-            this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('index.html'), this.names);
-            this.fs.copy(this.templatePath('favicon.ico'), this.destinationPath('favicon.ico'));
+            this.fs.copyTpl(this.templatePath('app/**/*'), this.destinationPath('src/app'), this.names);
+            this.fs.copy(this.templatePath('assets/**/*'), this.destinationPath('src/assets'));
+            this.fs.copy(this.templatePath('locales/**/*'), this.destinationPath('src/locales'));
+            this.fs.copy(this.templatePath('lib/**/*'), this.destinationPath('src/lib'));
+            this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('src/index.html'), this.names);
+            this.fs.copy(this.templatePath('favicon.ico'), this.destinationPath('src/favicon.ico'));
 
-            //create empty folders
-            mkdirp('lib');
-            mkdirp('assets/img');
-            mkdirp('app/components');
-            mkdirp('app/shared');
+            //copy .gitkeep file to create empty folders
+            this.fs.copy(this.templatePath('.gitkeep'), this.destinationPath('src/lib/.gitkeep'));
+            this.fs.copy(this.templatePath('.gitkeep'), this.destinationPath('src/app/components/.gitkeep'));
+            this.fs.copy(this.templatePath('.gitkeep'), this.destinationPath('src/assets/img/.gitkeep'));
         },
         gulp: function() {
             this.fs.copy(this.templatePath('gulp/**/*'), this.destinationPath('gulp'));
             this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath('gulpfile.js'), this.names);
+            this.fs.copyTpl(this.templatePath('gulp/config.js'), this.destinationPath('gulp/config.js'), this.names);
         }
     },
 

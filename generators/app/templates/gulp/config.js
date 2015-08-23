@@ -11,18 +11,18 @@ module.exports = function(plugins) {
     var config = {
         applicationName: applicationName,
 
-        srcJsFiles: ['lib/**/*.js',
-            'app/**/*.js',
+        srcJsFiles: ['src/lib/**/*.js',
+            'src/app/**/*.js',
             '!bower_components',
-            '!app/**/*.spec.js'
+            '!src/app/**/*.spec.js'
         ],
 
-        srcTemplateFiles: ['app/**/*.html'],
+        srcTemplateFiles: ['src/app/**/*.html'],
         srcSassFiles: ['**/*.scss',
             '!bower_components/'
         ],
 
-        srcMainSassFile: 'assets/sass/main.scss',
+        srcMainSassFile: 'src/app/assets/sass/main.scss',
 
         destPath: destPath,
 
@@ -41,6 +41,6 @@ module.exports = function(plugins) {
     config.srcVendorFiles = plugins.mainBowerFiles().filter(function(file) {
         return file.indexOf('.js') > -1 && file.indexOf('.css') === -1;
     });
-    
+
     return config;
 };

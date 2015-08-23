@@ -7,11 +7,11 @@
 
     function defineRoutes($routeProvider) {
         $routeProvider.when('/<%= name %>', {
-            templateUrl: 'app/components/<%= name %>/<%= name %>.html',
+            templateUrl: 'app/<%= name %>/<%= name %>.html',
             controller: '<%= upperName %>Controller'
         });
     }
     function <%= upperName %>Controller($scope) {
-      
+
     }
 }());
