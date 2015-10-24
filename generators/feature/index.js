@@ -18,10 +18,10 @@ module.exports = yeoman.generators.NamedBase.extend({
     writing: {
 
         feature: function() {
-            this.fs.copyTpl(this.templatePath('feature.js'), this.destinationPath('src/app/' + this.names.name + '/' + this.names.name + '.js'), this.names);
-            this.fs.copyTpl(this.templatePath('feature.html'), this.destinationPath('src/app/' + this.names.name + '/' + this.names.name + '.html'), this.names);
-            this.fs.copyTpl(this.templatePath('feature.scss'), this.destinationPath('src/app/' + this.names.name + '/' + this.names.name + '.scss'), this.names);
-            this.fs.copyTpl(this.templatePath('feature.spec.js'), this.destinationPath('src/app/' + this.names.name + '/' + this.names.name + '.spec.js'), this.names);
+            this.fs.copyTpl(this.templatePath('feature.js'), this.destinationPath('public/app/' + this.names.name + '/' + this.names.name + '.js'), this.names);
+            this.fs.copyTpl(this.templatePath('feature.html'), this.destinationPath('public/app/' + this.names.name + '/' + this.names.name + '.html'), this.names);
+            this.fs.copyTpl(this.templatePath('feature.scss'), this.destinationPath('public/app/' + this.names.name + '/' + this.names.name + '.scss'), this.names);
+            this.fs.copyTpl(this.templatePath('feature.spec.js'), this.destinationPath('public/app/' + this.names.name + '/' + this.names.name + '.spec.js'), this.names);
         }
 
     }

@@ -56,17 +56,12 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         app: function() {
-            this.fs.copyTpl(this.templatePath('app/**/*'), this.destinationPath('src/app'), this.names);
-            this.fs.copy(this.templatePath('assets/**/*'), this.destinationPath('src/assets'));
-            this.fs.copy(this.templatePath('locales/**/*'), this.destinationPath('src/locales'));
-            this.fs.copy(this.templatePath('lib/**/*'), this.destinationPath('src/lib'));
-            this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('src/index.html'), this.names);
-            this.fs.copy(this.templatePath('favicon.ico'), this.destinationPath('src/favicon.ico'));
+            this.fs.copyTpl(this.templatePath('public/**/*'), this.destinationPath('public'), this.names);
 
             //copy .gitkeep file to create empty folders
-            this.fs.copy(this.templatePath('.gitkeep'), this.destinationPath('src/lib/.gitkeep'));
-            this.fs.copy(this.templatePath('.gitkeep'), this.destinationPath('src/app/components/.gitkeep'));
-            this.fs.copy(this.templatePath('.gitkeep'), this.destinationPath('src/assets/img/.gitkeep'));
+            this.fs.copy(this.templatePath('.gitkeep'), this.destinationPath('public/lib/.gitkeep'));
+            this.fs.copy(this.templatePath('.gitkeep'), this.destinationPath('public/app/components/.gitkeep'));
+            this.fs.copy(this.templatePath('.gitkeep'), this.destinationPath('public/assets/img/.gitkeep'));
         },
         gulp: function() {
             this.fs.copy(this.templatePath('gulp/**/*'), this.destinationPath('gulp'));

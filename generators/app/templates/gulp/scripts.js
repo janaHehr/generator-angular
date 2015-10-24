@@ -49,7 +49,7 @@ module.exports = function(gulp, plugins, config) {
         return gulp.src(config.srcTemplateFiles)
             .pipe(plugins.html2js({
                 outputModuleName: config.applicationName,
-                base: 'src/'
+                base: config.srcPublicPath
             }))
             .pipe(plugins.concat(config.destTemplateFile))
             .pipe(gulp.dest(config.destJsPath));
@@ -64,7 +64,7 @@ module.exports = function(gulp, plugins, config) {
             }))
             .pipe(plugins.html2js({
                 outputModuleName: config.applicationName,
-                base: 'src/'
+                base: config.srcPublicPath
             }))
             .pipe(plugins.concat(config.destTemplateFile))
             .pipe(plugins.uglify())

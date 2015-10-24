@@ -4,7 +4,7 @@ module.exports = function(gulp, plugins, config) {
 
     // copy index.html and inject concated js dist file
     gulp.task('index', function() {
-        return gulp.src('src/index.html')
+        return gulp.src(config.srcPublicPath + 'index.html')
             .pipe(plugins.inject(gulp.src([config.destJsPath + config.destCombinedJsFile, config.destCssPath + config.destCssFile], {
                 read: false
             }), {
@@ -16,7 +16,7 @@ module.exports = function(gulp, plugins, config) {
 
     // copy index.html and inject js dist files
     gulp.task('index:dev', function() {
-        return gulp.src('src/index.html')
+        return gulp.src(config.srcPublicPath + 'index.html')
             .pipe(plugins.inject(gulp.src(config.destJsFiles.concat([config.destCssPath + config.destCssFile]), {
                 read: false
             }), {
@@ -30,6 +30,6 @@ module.exports = function(gulp, plugins, config) {
     /*----------watchers----------*/
 
     gulp.task('watch:index', function() {
-        gulp.watch('index.html', ['index:dev']);
+        gulp.watch(config.srcPublicPath + 'index.html', ['index:dev']);
     });
 };

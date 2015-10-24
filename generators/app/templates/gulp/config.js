@@ -6,34 +6,33 @@ module.exports = function(plugins) {
 
     //base variables
     var applicationName = '<%= safeAppName %>';
+    var srcPublicPath = 'public/';
     var destPath = 'dist/';
 
     var config = {
         applicationName: applicationName,
 
-        srcJsFiles: ['src/lib/**/*.js',
-            'src/app/**/*.js',
-            '!bower_components',
-            '!src/app/**/*.spec.js'
+        srcPublicPath: srcPublicPath,
+        srcJsFiles: [srcPublicPath + 'lib/**/*.js',
+            srcPublicPath + 'app/**/*.js',
+            '!' + srcPublicPath + 'bower_components',
+            '!' + srcPublicPath + 'app/**/*.spec.js'
         ],
-
-        srcTemplateFiles: ['src/app/**/*.html'],
+        srcTemplateFiles: [srcPublicPath + 'app/**/*.html'],
         srcSassFiles: ['**/*.scss',
-            '!bower_components/'
+            '!' + srcPublicPath + 'bower_components/'
         ],
-
-        srcMainSassFile: 'src/assets/sass/main.scss',
+        srcMainSassFile: srcPublicPath + 'assets/sass/main.scss',
 
         destPath: destPath,
-
         destJsPath: destPath + 'js/',
         destCssPath: destPath + 'css/',
-
         destJsFile: applicationName + '.js',
         destVendorFile: 'vendor.js',
         destTemplateFile: applicationName + '-templates.js',
         destCombinedJsFile: applicationName + '.min.js',
         destCssFile: 'main.min.css',
+
         karmaConfigFile: path.resolve('karma.conf.js')
     };
 

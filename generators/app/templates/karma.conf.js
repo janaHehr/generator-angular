@@ -18,18 +18,18 @@ module.exports = function(config)
 
         // list of files / patterns to load in the browser
         files: [
-            'bower_components/angular/angular.js',
-            'bower_components/angular-route/angular-route.js',
-            'bower_components/angular-mocks/angular-mocks.js',
-            'src/app/**/*.js',
-            'src/app/**/*.html'
+            'public/bower_components/angular/angular.js',
+            'public/bower_components/angular-route/angular-route.js',
+            'public/bower_components/angular-mocks/angular-mocks.js',
+            'public/app/**/*.js',
+            'public/app/**/*.html'
         ],
 
         // preprocessors for files
         preprocessors:
         {
-            'src/app/**/!(*spec)*.js': 'coverage',
-            'src/app/**/*.html': 'ng-html2js'
+            'public/app/**/!(*spec)*.js': 'coverage',
+            'public/app/**/*.html': 'ng-html2js'
         },
 
         // list of files to exclude
