@@ -3,6 +3,7 @@
 
     angular.module('<%= safeAppName %>', [
             'ngRoute',
+            'ngSanitize',
             'pascalprecht.translate'
         ])
         .config(init);
@@ -20,6 +21,7 @@
             prefix:'locales/',
             suffix: '.json'
         });
+        $translateProvider.useSanitizeValueStrategy('sanitize');
         $translateProvider.preferredLanguage('de-DE');
         $translateProvider.fallbackLanguage('de-DE');
     }
